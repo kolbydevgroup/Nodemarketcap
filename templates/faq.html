@@ -1,0 +1,25 @@
+{% extends "header.html" %}
+
+{% block body %}
+<h1>FAQ</h1>
+<br>
+<div class="row">
+<div class="col-12">
+<p><strong>Select Base currency</strong><br>We default in US Dollar.</p>
+<p><strong>Coin/Detail</strong><br>Displays the coin name and logo. Click this to see the advanced stats - that's where the real magic of the platform lies...</p>
+<p><strong>Price</strong><br>Last traded price of coin with ~5 minutes (or block time) delay.</p>
+<p><strong>Change</strong><br>Coin Price Change from exactly 5 minutes ago.</p>
+<p><strong>Volume</strong><br>Value of all the coin traded in the last 5 minutes.</p>
+<p><strong>ROI%</strong><br>Annual Return on Investment of masternode of this coin.</p>
+<p><strong>Nodes</strong><br>Lists the number of active masternodes on specified coin network.</p>
+<p><strong># required</strong><br>Also called collateral.  The amount of coins required for a masternode.  Always buy 1 more for transaction fees from exchange and internal transaction to the masternode.  
+</p><p><strong>MN Worth</strong><br>The current value of masternode based upon last traded price. It is Price x # required.</p>
+<br>
+<br>
+<p>ROI changes often and is not the most important factor. Please consider <strong>Dev Team - Community - PURPOSE/Platform - Liquidity - Wallet</strong> when making masternode purchases.</p>
+<br>
+
+</div>
+</div>
+
+{% endblock %}

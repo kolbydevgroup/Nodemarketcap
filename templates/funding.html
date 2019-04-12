@@ -1,0 +1,64 @@
+{% extends "header.html" %}
+
+{% block body %}
+
+
+
+<div class="col-x1-12">
+<ul class="nav nav-tabs">
+  <li class="nav-item"><a class="nav-link" href="/">STATISTICS</a></li>
+  <li class="nav-item"><a class="nav-link active" href="/funding/">FUNDING</a></li>
+  <li class="nav-item"><a class="nav-link " href="/maintenance/">MAINTENANCE</a></li>  
+</ul>
+
+
+<table id="fund" class="table table-striped table-hover responsive dataTable no-footer dtr-column" style="width:100%">
+        <thead>
+            <tr>
+                <th></th>			
+                <th>Name</th>
+                <th>PROGRESS</th>
+                <th>BALANCE (CRU)</th>
+                <th>NEEDED (CRU)</th>
+				<th>REQUIRED (CRU)</th>
+                <th>DONATE ADDRESS (CRU)</th>
+                <th>ADDED</th>		
+            </tr>
+        </thead>
+    </table>
+
+<br>
+
+<p align="center" style="font-size: 13px;"><strong>NodeMarketCap is a masternode coin monitoring and stats service. NodeMarketCap does not research or recommend any coin. Do your own research and invest at your own risk.</strong></p>
+<p align="center" style="font-size: 13px;">ROI changes often and is not the most important factor.  Please consider <strong>Dev Team - Community - PURPOSE/Platform - Liquidity - Wallet</strong> when making masternode purchases.</p>
+
+<br>
+
+    <script type="text/javascript" charset="utf-8">
+		
+	$(document).ready(function() {
+		$('#fund').DataTable( {
+			"ajax": "{{ url_for('get_server_funding') }}",
+			"columnDefs": [
+			{ "orderable": false, "targets": 0 }, {"targets": 0,	"data": [[0]], "render": function(data, type, row) {
+			return '<img src="/static/imgs/coins16/'+data+'.png" />';
+			},
+			},
+			{"targets": 1,	"data": [[1]], "render": function(data, type, row) {
+			return '<a href="'+data+'</a>';
+			},
+			},	
+				{ "targets": 2, "data": [[2]], render: $.fn.dataTable.render.number( ',', '.', 2,'', '%' )},
+				{ "targets": 3, "data": [[3]], render: $.fn.dataTable.render.number( ',', '.', 4,'', '' )},
+				{ "targets": 4, "data": [[4]], render: $.fn.dataTable.render.number( ',', '.', 4,'', '' )},
+
+			],	
+			"order": [[ 2, "desc" ]],
+			"paging": false
+		} );
+	} );
+		
+	</script>
+</body>
+</html>
+{% endblock %}

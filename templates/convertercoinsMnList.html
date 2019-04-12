@@ -1,0 +1,388 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0">	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{cinfo[1]}} masternode, price, charts, roi, and other metrics | NodeMarketCap</title>
+	<meta name="description" content="Get {{cinfo[0]}} masternode list, price, charts, roi, and other cryptocurrency info">
+	<meta name="keywords" content="{{cinfo[1]}} masternode list, coins, list, crypto, roi, stats">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='imgs/logos/nodemarketcap_small.png') }}" type="image/x-icon" />
+	<script type="text/javascript" src="{{ url_for('static', filename='js/Chart.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nodemarketcap.css') }}">
+	<meta name="robots" content="index,follow">
+	<meta http-equiv="Expires" content="30">
+	<meta name="twitter:card" content="{{cinfo[0]}} coin A site That gives Detailed Masternode Stats, ROI, Widgets">
+	<meta name="twitter:site" content="@nodemarketcap">
+	<meta name="twitter:title" content="{{cinfo[1]}} - Masternode Stats ROI - NodeMarketCap">
+	<meta name="twitter:description" content="{{cinfo[0]}} coin Stats. {{cinfo[0]}} coin masternode investment comparison tool and detailed stats.">
+	<meta name="twitter:creator" content="@nodemarketcap">
+	<meta name="twitter:image" content="{{ url_for('static', filename='imgs/logos/nodemarketcaplogo.png') }}">		
+	<meta name="googlebot" content="index,follow, snippet, archive">
+	<link rel="stylesheet" href="{{ url_for('static', filename='fontawesome-free-5.3.1-web/css/all.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='DataTables/datatables.min.css') }}"/>
+    <script type="text/javascript" src="{{ url_for('static', filename='DataTables/datatables.min.js') }}"></script>	
+    <script type="text/javascript" src="https://nodemarketcap.com/static/js/widget.js"></script>	
+	<script type="text/javascript" src="{{ url_for('static', filename='js/nodemarketcap.theme.js') }}"></script>	
+<script>
+        function getCookie(e){var n=" "+document.cookie,t=" "+e+"=",i=null,o=0,u=0;return n.length>0&&-1!=(o=n.indexOf(t))&&(o+=t.length,-1==(u=n.indexOf(";",o))&&(u=n.length),i=unescape(n.substring(o,u))),i}
+
+        var DEFAULT_CURRENCY = 'USD';
+        dataLayer = [{
+            'section': 'Cryptocurrency Details',
+            'subSection': 'Currencies',
+            'firstSessionDate': getCookie('gtm_session_first'),
+            'lastSessionDate': getCookie('gtm_session_last'),
+            'language': 'en',
+            'currency': getCookie('currency') || DEFAULT_CURRENCY,
+            'siteTheme': getCookie('theme') || 'day'
+        }];
+        </script>
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TM9RFQV');</script>
+	<style>
+	body {
+    font-size: 14px;
+    line-height: 1.42857143;
+	}
+	.span3{
+    margin-right: 30px;
+	}
+	.resp-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 1.25%;
+	}
+	.chart-container {
+    width: 100%;
+    height: 400px;
+}
+.status-pill {
+    width: 12px;
+    height: 12px;
+    border-radius: 30px;
+    background-color: #eee;
+    display: inline-block;
+    vertical-align: middle;
+}
+.status-pill.green {
+    background-color: #71c21a;
+}
+.smaller {
+    width: 8px;
+    height: 8px;
+}
+.red {
+    background-color: #c21a1a;
+}
+.bottom-margin-2x {
+    margin-bottom: 48px;
+}
+hr {
+    border: 0 none;
+    height: 1px;
+    background-color: #f5f7f8;
+    margin: 0 0 24px;
+.padding-top-1x {
+    padding-top: 24px;
+}
+}
+	</style>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120642499-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-120642499-1');
+	</script>	
+</head>
+
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TM9RFQV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<script>
+            NightMode.init();
+        </script>
+<nav class="navbar navbar-expand-lg navbar-dark dark-bar">
+  <div class="container">
+  <a class="navbar-brand" href="/"><img  style="    width: auto;    height: 26px;" src="{{ url_for('static', filename='imgs/logos/nodemarketcapwideblacksmaller.png') }}" /></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="https://docs.google.com/forms/d/e/1FAIpQLSczdl6ikvffrSLPOpBNDPbia5DY2smB_pNIr3_1QAbvylvFgw/viewform?usp=sf_link">Get Listed <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://discord.gg/3HvzZjA">Discord</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/trending/">Trending</a>
+      </li>	
+      <li class="nav-item">
+        <a class="nav-link" href="/faq/">FAQ</a>
+      </li>	 
+	 </ul>
+		<div class="dropdown">
+		  <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<span data-language-dropdown>English</span>
+		  </button>
+		  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			<li class=""><a  class="dropdown-item" href="/de/" data-language-toggle="de">Deutsch</a></li>
+			<li class=""><a  class="dropdown-item" href="/" data-language-toggle="en">English</a></li>
+			<li class=""><a  class="dropdown-item" href="/es/" data-language-toggle="es">Español</a></li>
+			<li class=""><a  class="dropdown-item" href="/fil/" data-language-toggle="fil">Filipino</a></li>
+			<li class=""><a  class="dropdown-item" href="/fr/" data-language-toggle="fr">Français</a></li>
+			<li class=""><a  class="dropdown-item" href="/hi/" data-language-toggle="hi">हिन्दी</a></li>
+			<li class=""><a  class="dropdown-item" href="/it/" data-language-toggle="it">Italiano</a></li>
+			<li class=""><a  class="dropdown-item" href="/ja/" data-language-toggle="ja">日本語</a></li>
+			<li class=""><a  class="dropdown-item" href="/ko/" data-language-toggle="ko">한국어</a></li>
+			<li class=""><a  class="dropdown-item" href="/pt-br/" data-language-toggle="pt-br">Português Brasil</a></li>
+			<li class=""><a  class="dropdown-item" href="/ru/" data-language-toggle="ru">Русский</a></li>
+			<li class=""><a  class="dropdown-item" href="/tr/" data-language-toggle="tr">Türkçe</a></li>
+			<li class=""><a  class="dropdown-item" href="/vi/" data-language-toggle="vi">Tiếng Việt</a></li>
+			<li class=""><a  class="dropdown-item" href="/zh/" data-language-toggle="zh">简体中文</a></li>
+			<li class=""><a  class="dropdown-item" href="/zh-tw/" data-language-toggle="zh-tw">繁體中文</a></li>
+		  </ul>
+		</div>	
+		<div style="padding-left: 10px;">
+		<div data-global-currency-switch class="dropdown dropdown2">
+		  <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<span data-currency-display="">USD</span>
+		  </button>
+		  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>USD</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>DKK</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>JPY</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>PLN</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>AUD</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>EUR</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>KRW</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>RUB</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>BRL</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>GBP</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>MXN</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>SEK</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>CAD</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>HKD</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>MYR</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>SGD</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>CHF</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>HUF</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>NOK</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>THB</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>CLP</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>IDR</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>NZD</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>TRY</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>CNY</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>ILS</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>PHP</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>TWD</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>CZK</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>INR</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>PKR</a></li>
+			<li class="col-3"><a  class="dropdown-item" data-currency-toggle>ZAR</a></li>
+		  </ul>
+		</div>	
+		</div>
+		<div style="padding-left: 10px;">
+		<button type="button" class="btn btn-outline-secondary  js-theme-switch" title="Day/Night Mode"><i class="fas fa-moon"></i></button></div>		
+	 </div>
+  </div>
+</nav>
+<br>
+<br>
+<div class="container">
+<br>
+	<center>
+		<a href="https://www.vultr.com/?ref=7673170"><img src="https://www.vultr.com/media/banner_1.png" width="728" height="90"></a>
+	</center>
+<br>
+  <div class="row">
+    <div class="col-lg-8 col-md-5">
+      <div class="card text-black mb-3 ">
+        <div class="card-body"><img src="/static/imgs/coins32/{{cinfo[0]}}.png" alt="Masternode Cryptocurrencies Logo"/><font style="font-size: 20px;  font-weight: bold;">    {{cinfo[1]}}</font><span class="update-time" style="float: right;">Updated at {{cinfo[7]}}</span></div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-7">
+      <div class="card text-black mb-3">
+        <div class="card-body"><div style="font-size: 22.5px;"><span><a  class="span3" target="_blank" href="{{cinfo[2]}}"><i class="fab fa-bitcoin fa-lg"></i></a></span><span><a  class="span3" target="_blank" href="{{cinfo[3]}}"><i class="fab fa-wordpress fa-lg"></i></a></span>
+		<span><a  class="span3" target="_blank" href="{{cinfo[4]}}"><i class="fab fa-discord fa-lg"></i></a></span><span><a  class="span3" target="_blank" href="{{cinfo[5]}}"><i class="fab fa-github fa-lg"></i></a></span>
+		<span><a  class="span3" target="_blank" href="{{cinfo[6]}}"><i class="fab fa-twitter fa-lg"></i></a></span>
+		</div>
+		</div>
+      </div>
+    </div>	
+  </div>
+<div>
+<ul class="nav nav-tabs" id="myTab">
+  <li class="nav-item">
+    <a class="nav-link" href="/coin/{{cinfo[0]}}/"  >Masternodes Stats</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link "  href="/coin/{{cinfo[0]}}/#social" >Social</a>
+  </li>	
+  <li class="nav-item">
+    <a class="nav-link "  href="/coin/{{cinfo[0]}}/#tools" >Tools</a>
+  </li>
+   <li class="nav-item">
+    <a class="nav-link active" href="/coin/{{cinfo[0]}}/masternodeList" >List</a>
+  </li>
+</ul> 
+</div> 
+
+<table align="center" id="mnList" class="table table-striped responsive nowrap dataTable no-footer dtr-column" style="width:100%">
+        <thead>
+            <tr>
+                <th>Status</th>			
+                <th>Address</th>
+                <th>Version</th>
+                <th>Last Seen</th>
+                <th>Last Paid</th>			
+            </tr>
+        </thead>
+        <tbody>
+
+	
+    {%- for dinfo in coins recursive %}
+            <tr class="coinlist-row ">
+                <td>{{dinfo[0]}}</td>
+                <td>{{dinfo[1]}}</td>
+				<td>{{dinfo[2]}}</td>
+                <td>{{dinfo[3]}}</td>
+				<td>{{dinfo[4]}}</td>
+            </tr>
+    {%- endfor %}
+	
+	
+        </tbody>
+    </table>
+
+
+
+      <div class="row">
+          <div class="col-lg-12" style="text-align:center;">
+			<hr class="hr-nice">
+			<p><div style="font-size: 13px;">NodeMarketCap © 2018 | Made by Mrmetech | <a href="/press-kit/" title="press-kit - Get the logos for our site">Press Kit</a> | <a href="/disclaimer/">Disclaimer</a> | <a href="/api/">Api</a> | <a href="/terms/">Terms</a> | <a href="/privacy/">Privacy</a> | Contact us: <a href="mailto:info@nodemarketcap.com">info@nodemarketcap.com</a> | Follow us on <a href="https://twitter.com/nodemarketcap">Twitter</a> | <a href="https://docs.google.com/forms/d/e/1FAIpQLSczdl6ikvffrSLPOpBNDPbia5DY2smB_pNIr3_1QAbvylvFgw/viewform?usp=sf_link" title="Listing &amp; Advertising with NodeMarketCap" target="_blank">Listing &amp; Advertising with NodeMarketCap</a></div></p>
+		</div>
+		<div>
+		<p>
+                            <a href="https://play.google.com/store/apps/details?id=com.nodemarketcap.nodemarketcap" target="_blank">
+                                <img src="/static/imgs/logos/android.png" height="34">
+                            </a>
+                        </p>
+								
+		</div>
+	 </div>
+</div>
+<div id="currency-exchange-rates" data-pkr="0.00744878957169" data-all="0.00907852927826" data-ron="0.242335356753" data-mnt="0.000401181043131" data-ugx="0.000267629787768" data-ttd="0.148369053183" data-aud="0.721680360552" data-cup="0.0388349514563" data-ngn="0.0027397260274" data-byn="0.465881842115" data-gtq="0.129616955972" data-hrk="0.152195210447" data-clp="0.0014634999926" data-eur="1.12932078131" data-nok="0.117433978324" data-amd="0.00205002671164" data-mxn="0.0489545462912" data-gel="0.408665339867" data-try="0.182465103549" data-crc="0.001619415651" data-aed="0.272255676395" data-gbp="1.29502477382" data-bam="0.576466892065" data-ars="0.0278541445574" data-mdl="0.0588396653247" data-btc="5858.28522443" data-sek="0.10989306855" data-mur="0.0287331551878" data-irr="2.35318063198e-05" data-cny="0.143874769099" data-bdt="0.0119238026562" data-pen="0.296120378856" data-kzt="0.00266575427495" data-rub="0.0148799780967" data-omr="2.59751054589" data-mkd="0.018391167855" data-jod="1.40943135083" data-mmk="0.000622669055514" data-pln="0.26270024326" data-kes="0.00972951936174" data-hkd="0.12766908174" data-ves="0.0153194858866" data-cop="0.000313494364939" data-dzd="0.00842866611259" data-idr="6.75644404296e-05" data-krw="0.000881437801342" data-bgn="0.579028737196" data-isk="0.00805021822733" data-ils="0.270656504417" data-bob="0.144719266331" data-dkk="0.151341704749" data-twd="0.0323535199238" data-kwd="3.28672753686" data-brl="0.263644248996" data-zar="0.0694439139701" data-sgd="0.725110053578" data-uzs="0.000120918289271" data-usd="1.0" data-chf="0.99260607733" data-xau="1207.30661966" data-xpd="1127.98068897" data-xag="14.0949551759" data-huf="0.00350292143648" data-bmd="1.0" data-rsd="0.00955534753989" data-jmd="0.00791389680279" data-azn="0.587371512482" data-uah="0.0359324469996" data-lkr="0.00567504681914" data-tnd="0.342948112294" data-nzd="0.679453990773" data-iqd="0.000839630562552" data-xpt="830.530293592" data-cad="0.754907844625" data-lbp="0.000661594442607" data-khr="0.000247295208655" data-myr="0.238119900514" data-bhd="2.65295618908" data-inr="0.0138560851846" data-jpy="0.00880039601782" data-czk="0.0433953625199" data-sar="0.266534962857" data-ltc="44.4954170191" data-nad="0.069516857838" data-qar="0.27464989691" data-pab="1.0" data-xrp="0.465118142424" data-vnd="4.30349259669e-05" data-uyu="0.0305527714343" data-nio="0.0309789343247" data-kgs="0.0145554572674" data-ssp="0.00767675340886" data-mad="0.104764325317" data-php="0.0188474998839" data-eth="187.312990994" data-npr="0.00864347332928" data-bch="445.595812447" data-ghs="0.20429426546" data-egp="0.0558160303639" data-hnl="0.0411522362784" data-dop="0.0200359055449" data-thb="0.0302938503484"></div>
+<script>
+            var LANG_CODE = 'en';
+            var STATIC_DOMAIN = 'nodemarketcap.com';
+        </script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/nodemarketcap.graph.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/nodemarketcap.code.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/nodemarketcap.detail.js') }}"></script>
+
+<script>
+        const PHRASES = {
+            emptyTable: "No data available in table",
+    zeroRecords: "No matching records found",
+    sortAscending: ": activate to sort column ascending",
+    sortDescending: ": activate to sort column descending",
+            'K': "K",
+    'M': "M",
+    'B': "B",
+    'T': "T"
+        };
+        var polyglot = new Polyglot({phrases: PHRASES});
+
+        var watchlistStore = WatchlistStore();
+        var watchlistActions = $.map($('[data-more-options]'), function (elem) {
+            return new WatchlistAction({
+                element: elem,
+                watchlistStore: watchlistStore,
+                watchlistIsFull: watchlistStore.isFull()
+            });
+        });
+        $(document).on(watchlistStore.WATCHLIST_AT_CAPACITY, function (event) {
+            for (var i=0; i < watchlistActions.length; i++) {
+                watchlistActions[i].render({watchlistIsFull: true});
+            }
+        });
+        $(document).on(watchlistStore.WATCHLIST_UNDER_CAPACITY, function (event) {
+            for (var i=0; i < watchlistActions.length; i++) {
+                watchlistActions[i].render({watchlistIsFull: false});
+            }
+        });
+    </script>
+	<script>
+            $( document ).ready(function() {
+                // GTM Session Set
+                var maxExpire = new Date('2038-01-19 00:00:00');
+                if (Cookies.get("gtm_session_first") === undefined) {
+                    Cookies.set("gtm_session_first", new Date(), {expires: maxExpire})
+                }            
+
+                Cookies.set("gtm_session_last", new Date(), {expires: maxExpire})
+              
+
+            });
+
+            (function () {
+                var polyglot = new Polyglot({phrases: {
+                    cryptocurrencies: "Cryptocurrencies",
+                    exchanges: "Exchanges"
+                }});
+/*
+                initQuickSearch({
+                    currencyDataURL: 'https://' + STATIC_DOMAIN + '/generated/search/quick_search.json',
+                    exchangeDataURL: 'https://' + STATIC_DOMAIN + '/generated/search/quick_search_exchanges.json',
+                    currencySuggestionTemplate: function (context) {
+                        var template = "/currencies/%25s/";
+                        context.url = template.replace('%25s', context.slug);
+                        return Handlebars.templates['quick_search'](context);
+                    },
+                    exchangeSuggestionTemplate: function (context) {
+                        var template = "/exchanges/%25s/";
+                        context.url = template.replace('%25s', context.slug);
+                        return Handlebars.templates['quick_search_exchanges'](context);
+                    },
+                    currencyLimit: 6,
+                    exchangeLimit: 4
+                }, polyglot);
+*/
+                SiteNav('.js-sitenav');
+
+                $('[data-language-toggle]').on('click', function () {
+                    dataLayer.push({
+                        'event': 'customEvent',
+                        'eventCategory': 'Language Dropdown',
+                        'eventAction': 'Language Selected',
+                        'eventLabel': $(this).data('language-toggle')
+                    });
+                });
+
+                var language = $('[data-language-toggle="' + 'en' + '"]').html();
+                $('[data-language-dropdown]').html(language);
+				
+                ThemeSwitch('.js-theme-switch');
+                ScrollToTop('.scroll-to-top');
+                CookiedDismissableAlert({
+                    selector: '.js-cookie-policy-banner',
+                    cookieKey: 'cmc_gdpr_hide'
+                });
+            })();
+        </script>
+	<script>
+</body>
+</html>

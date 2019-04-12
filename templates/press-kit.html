@@ -1,0 +1,45 @@
+{% extends "header.html" %}
+
+{% block body %}
+
+
+<h1 class="text-center" style="    font-size: 25px;line-height: 1.44em;margin-top: 0;margin-bottom: 1.92em;">
+Press Kit
+</h1>
+
+
+<br>
+<br>
+
+<div class="col-sm-12">
+<p>
+Hi thank you for using NodeMarketCap here is our logos.
+</p>
+<center>
+<img  style="    width: auto;    height: 100px;" src="{{ url_for('static', filename='imgs/logos/nodemarketcap.png') }}" />
+  <hr>
+  <br>
+  <h5>Black Text</h5>
+  <img  style="    width: auto;    height: 100px;" src="{{ url_for('static', filename='imgs/logos/nodemarketcaplogo.png') }}" />
+  <hr>
+  <br>
+  <h5>White Text</h5>
+  <div style="background-color: black">
+  <img  style="    width: auto;    height: 100px;" src="{{ url_for('static', filename='imgs/logos/nodemarketcaplogowhite.png') }}" />
+</div>
+   <hr>
+  <br>
+  <h5>Black Text</h5>
+  <img  style="    width: auto;    height: 100px;" src="{{ url_for('static', filename='imgs/logos/nodemarketcapwideblack.png') }}" />
+  <hr>
+  <br>
+  <h5>White Text</h5>
+  <div style="background-color: black">
+  <img  style="    width: auto;    height: 100px;" src="{{ url_for('static', filename='imgs/logos/nodemarketcapwide.png') }}" />
+  </div>
+  </center>
+</div>
+<br>
+
+
+{% endblock %}

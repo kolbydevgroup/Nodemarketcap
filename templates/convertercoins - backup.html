@@ -1,0 +1,448 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0">	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NodeMarketCap</title>
+	<meta name="description" content="{{cinfo[0]}} ({{cinfo[2]}}) masternode investment comparison tool features the most accurate and detailed stats made by Mrmetech.">
+	<meta name="keywords" content="{{cinfo[0]}} masternode, {{cinfo[2]}} masternode, masternodes, cryptocurrency, comparison, crypto, roi stats, proof of stake, stake">
+	<meta http-equiv="Cache-control" content="no-cache">
+	<meta http-equiv="Pragma" content="no-cache">
+	<link rel="shortcut icon" href="/static/imgs/logos/nodemarketcap.png" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="/static/css/dataTables.min.css"/>
+    <script type="text/javascript" src="/static/js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="/static/js/dataTables.min.js"></script>
+	<script src="/static/js/Chart.js"></script>
+    <link rel="stylesheet" href="/static/css/site.css">
+	<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <script src="/static/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/static/css/all.css">
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-TM9RFQV');</script>
+	<!-- End Google Tag Manager -->	
+	<style>
+	body {
+    font-size: 14px;
+    line-height: 1.42857143;
+	}
+	span{
+    margin-right: 30px;
+	}
+	.resp-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 1.25%;
+	}
+	.chart-container {
+    width: 100%;
+    height: 400px;
+}
+
+	
+.addesktop{display:none}.adsmall{display:none}.admedium{display:none}.mnp-content-header{padding:.5em}.dataTable tr:hover{color:#bbc7de}.dataTable tr:hover .mpn-coin-name{color:#2c97de!important;text-decoration:underline}.dataTable td a.mpn-coin-name{color:#7b7b7b}.mpn-coin-name:hover{color:#2c97de!important;text-decoration:underline}.mstr-switch{position:relative;display:inline-block;width:52px;height:26px}.mstr-switch input{display:none}.mstr-slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background-color:#ccc;-webkit-transition:.4s;transition:.4s}.mstr-slider:before{position:absolute;content:"";height:20px;width:20px;left:3px;bottom:3px;background-color:#fff;-webkit-transition:.4s;transition:.4s}input:checked+.mstr-slider{background-color:#7b7b7b}input:focus+.mstr-slider{-webkit-box-shadow:0 0 1px #2c97de;box-shadow:0 0 1px #2c97de}input:checked+.mstr-slider:before{-webkit-transform:translateX(26px);transform:translateX(26px)}.mstr-slider.mstr-round{border-radius:34px}.mstr-slider.mstr-round:before{border-radius:50%}.mstr-slider-labels{vertical-align:top;margin:3px 6px}.mstr-disabled{opacity:.4}.mnp-currency{position:relative;margin-top:1em;margin-left:1.5em;z-index:2;width:150px}.nav-tabs .nav-item{margin-bottom:-1px;width:100%;text-align:center}@media(min-width:576px){.adsmall{display:none}.admedium{display:none}.addesktop{display:none}}@media(min-width:768px){.navbar-collapse.show{left:70%;-webkit-transition:left .3s ease-in;transition:left .3s ease-in;z-index:2000}.adsmall{display:block}.admedium{display:none}.addesktop{display:none}.admobile{display:none}.mnp-ad-header img{max-height:60px;max-width:98%}#ad_iframe{max-height:60px!important;overflow:hidden!important}.nav-tabs .nav-item{margin-bottom:-1px;width:auto;text-align:justify}}@media(min-width:992px){.mnp-header-spacer{width:20em;height:26px;display:inline-block}.admedium{display:block}.adsmall{display:none}.addesktop{display:none}.admobile{display:none}.mnp-currency{position:absolute;margin-top:1em;margin-left:1.5em;z-index:2;width:150px}.mnp-addnew{position:absolute;margin-top:1em;margin-left:1.5em;z-index:2;width:700px}.nav-tabs .nav-item{margin-bottom:-1px;width:auto;text-align:justify}}@media(min-width:1200px){.mnp-header-spacer{width:40em;height:26px;display:inline-block}.admedium{display:none}.adsmall{display:none}.addesktop{display:block}.admobile{display:none}.mnp-currency{position:absolute;margin-top:1em;margin-left:1.5em;z-index:2;width:150px}.mnp-addnew{position:absolute;margin-top:1em;margin-left:1.5em;z-index:2;width:800px}.nav-tabs .nav-item{margin-bottom:-1px;width:auto;text-align:justify}}@media only screen and (min-device-width:768px) and (max-device-width:1024px) and (orientation:landscape){.mnp-header-spacer{width:25em;height:26px;display:inline-block}}@media only screen and (min-device-width:768px) and (max-device-width:1024px) and (orientation:portrait){.mnp-header-spacer{width:8em;height:26px;display:inline-block}}
+	</style>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120642499-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-120642499-1');
+	</script>
+	
+</head>
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TM9RFQV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+  <a class="navbar-brand" href="/"><img  style="    width: auto;    height: 26px;" src="/static/imgs/logos/nodemarketcapwideblacksmaller.png" /></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="https://docs.google.com/forms/d/e/1FAIpQLSczdl6ikvffrSLPOpBNDPbia5DY2smB_pNIr3_1QAbvylvFgw/viewform?usp=sf_link">Get Listed <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://discord.gg/3HvzZjA">Discord</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/donate/">Donate</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/faq/">FAQ</a>
+      </li>	   
+  </div>
+  </div>
+</nav>
+<div class="container">
+<div _ngcontent-c4="" class="row">
+  <div _ngcontent-c4="" class="col-md-12">
+    <div _ngcontent-c4="" class="mnp-content-header addesktop text-center">
+		<ins class="bmadblock-5b61d6cf1c8bf60012f8ac37" style="display:inline-block;width:728px;height:90px;"></ins>
+<script async type="application/javascript" src="//ad.bitmedia.io/js/adbybm.js/5b61d6cf1c8bf60012f8ac37"></script>
+    </div>
+  </div>
+  <div _ngcontent-c4="" class="col-12 admobile">
+    <div _ngcontent-c4="" class="mnp-content-header text-center">
+<ins class="bmadblock-5b61d72f1c8bf60012f8ac7f" style="display:inline-block;width:300px;height:100px;"></ins>
+<script async type="application/javascript" src="//ad.bitmedia.io/js/adbybm.js/5b61d72f1c8bf60012f8ac7f"></script>
+</div>
+</div>
+  <div _ngcontent-c4="" class="col-12 adsmall">
+    <div _ngcontent-c4="" class="mnp-content-header text-center">
+<ins class="bmadblock-5b61db29428a690010addf9a" style="display:inline-block;width:468px;height:60px;"></ins>
+<script async type="application/javascript" src="//ad.bitmedia.io/js/adbybm.js/5b61db29428a690010addf9a"></script>
+</div>
+</div>
+  <div _ngcontent-c4="" class="col-12 admedium">
+    <div _ngcontent-c4="" class="mnp-content-header text-center">
+<ins class="bmadblock-5b61db64428a690010addfa4" style="display:inline-block;width:728px;height:90px;"></ins>
+<script async type="application/javascript" src="//ad.bitmedia.io/js/adbybm.js/5b61db64428a690010addfa4"></script>
+</div>
+</div>
+</div>
+  <div class="row">
+    <div class="col-lg-8 col-md-5">
+      <div class="card text-black mb-3 ">
+        <div class="card-body"><img src="/static/imgs/coinsapi/{{cinfo[0]}}.png" height="32" alt=""><font style="font-size: 20px;  font-weight: bold;">    {{cinfo[1]}}</font></div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-7">
+      <div class="card text-black mb-3">
+        <div class="card-body"><div style="font-size: 22.5px;"><span><a  class="" target="_blank" href="{{cinfo[4]}}"><i class="fab fa-bitcoin fa-lg"></i></a></span><span><a  class="" target="_blank" href="{{cinfo[12]}}"><i class="fab fa-wordpress fa-lg"></i></a></span>
+		<span><a  class="" target="_blank" href="{{cinfo[6]}}"><i class="fab fa-discord fa-lg"></i></a></span><span><a  class="" target="_blank" href="{{cinfo[8]}}"><i class="fab fa-github fa-lg"></i></a></span>
+		<span><a  class="" target="_blank" href="{{cinfo[10]}}"><i class="fab fa-twitter fa-lg"></i></a></span>
+		</div>
+		</div>
+      </div>
+    </div>	
+  </div>
+<div class="row">
+<div class="col-lg-3 col-md-12">
+	<div class="card text-black mb-3">
+        <div class="card-header alert-secondary"><h3><b>Info</b></h3></div>
+		<div class="card-body">
+        <div><a  class="" target="_blank" href="{{cinfo[4]}}">{{cinfo[3]}}</a></div>
+		<div><a  class="" target="_blank" href="{{cinfo[6]}}">{{cinfo[5]}}</a></div>
+		<div><a  class="" target="_blank" href="{{cinfo[8]}}">{{cinfo[7]}}</a></div>
+		<div><a  class="" target="_blank" href="{{cinfo[10]}}">{{cinfo[9]}}</a></div>
+		<div><a  class="" target="_blank" href="{{cinfo[12]}}">{{cinfo[11]}}</a></div>
+		<div><br></div>	
+		<div><a  class="" target="_blank" href="{{cinfo[13]}}">{{cinfo[14]}}</a></div>	
+		<div><br></div>
+		<div>Buy:</div>
+		<div><a  class="" target="_blank" href="{{cinfo[15]}}">{{cinfo[16]}}</a></div>				
+		<div><a  class="" target="_blank" href="{{cinfo[17]}}">{{cinfo[18]}}</a></div>						
+		</div>
+</div>
+<div _ngcontent-c4="" class="row">
+  <div _ngcontent-c4="" class="col-md-12">
+    <div _ngcontent-c4="" class="mnp-content-header addesktop text-center">
+		<ins class="bmadblock-5b61d7e11c8bf60012f8acd7" style="display:inline-block;width:250px;height:250px;"></ins>
+<script async type="application/javascript" src="//ad.bitmedia.io/js/adbybm.js/5b61d7e11c8bf60012f8acd7"></script>
+    </div>
+  </div>
+  <div _ngcontent-c4="" class="col-12 admobile">
+    <div _ngcontent-c4="" class="mnp-content-header text-center">
+</div>
+</div>
+  <div _ngcontent-c4="" class="col-12 adsmall">
+    <div _ngcontent-c4="" class="mnp-content-header text-center">
+</div>
+</div>
+  <div _ngcontent-c4="" class="col-12 admedium">
+    <div _ngcontent-c4="" class="mnp-content-header text-center">
+</div>
+</div>
+</div>
+</div>	
+<div class="col-lg-9">
+    
+
+
+
+
+
+  <div class="row">
+    <div class="col-lg-4 col-md-4">
+      <div class="card text-black mb-3">
+        <div class="card-header alert-success"><i class="fas fa-money-bill-wave"></i> MasterNodes Cost</div>
+        <div class="card-body"><div>${{cinfo[26]}}</div></div> 
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4"> 
+      <div class="card text-black mb-3">
+        <div class="card-header alert-success"><i class="fas fa-share-alt"></i> Enabled Masternodes</div>
+        <div class="card-body"><div>{{cinfo[25]}}</div></div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4"> 
+      <div class="card text-black mb-3">
+        <div class="card-header alert-success"><i class="fas fa-plug"></i> Required Coins</div>
+        <div class="card-body"><div>{{cinfo[24]}} {{cinfo[2]}}</div></div>
+      </div>
+    </div>
+  </div>    
+  <div class="row">
+    <div class="col-lg-3 col-md-3">
+      <div class="card text-black mb-3">
+        <div class="card-header alert-primary"><i class="fas fa-chart-line"></i> Annual ROI</div>
+        <div class="card-body"><div>{{cinfo[21]}}%</div></div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-3"> 
+      <div class="card text-black mb-3">
+        <div class="card-header alert-primary"><i class="fas fa-map-pin"></i> Coin Price</div>
+        <div class="card-body"><div>${{cinfo[22]}}</div></div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-3"> 
+      <div class="card text-black mb-3">
+        <div class="card-header alert-primary"><i class="fas fa-exchange-alt"></i> Change</div>
+        <div class="card-body"><div>{{cinfo[23]}}%</div></div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-3"> 
+      <div class="card text-black mb-3">
+        <div class="card-header alert-primary"><i class="fas fa-lock"></i> Coins Locked</div>
+        <div class="card-body"><div>{{cinfo[40]}} {{cinfo[2]}}</div>
+      </div>
+    </div>	
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3 col-md-3">
+      <div class="card text-black mb-3">
+        <div class="card-header alert-danger"><i class="fas fa-stopwatch"></i> Daily Income</div>
+        <div class="card-body"><div>${{cinfo[28]}}</div><div>{{cinfo[29]}} BTC</div><div>{{cinfo[30]}} {{cinfo[2]}}</div></div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-3"> 
+      <div class="card text-black mb-3">
+        <div class="card-header alert-danger"><i class="fas fa-clock"></i> Weekly Income</div>
+        <div class="card-body"><div>${{cinfo[31]}}</div><div>{{cinfo[32]}} BTC</div><div>{{cinfo[33]}} {{cinfo[2]}}</div></div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-3"> 
+      <div class="card text-black mb-3">
+        <div class="card-header alert-danger"><i class="fas fa-calendar"></i> Monthly Income</div>
+        <div class="card-body"><div>${{cinfo[34]}}</div><div>{{cinfo[35]}} BTC</div><div>{{cinfo[36]}} {{cinfo[2]}}</div></div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-3"> 
+      <div class="card text-black mb-3">
+        <div class="card-header alert-danger"><i class="fas fa-calendar-alt"></i> Yearly Income</div>
+        <div class="card-body"><div>${{cinfo[37]}}</div><div>{{cinfo[38]}} BTC</div><div>{{cinfo[39]}} {{cinfo[2]}}</div></div>
+      </div>
+    </div>	
+  </div>
+<div class="row">  
+<div class="col-lg-12 col-md-12">
+<div class="card">
+  <div class="card-header bg-danger text-white"><h3>Market Info</h3></div>
+  <div class="card-body">
+<table class="table">
+	<tbody><tr>
+		<td><strong>Price</strong></td>
+		<td><strong>Volume</strong></td>
+		<td><strong>Marketcap</strong></td>
+	</tr>
+	<tr>
+		<td>${{cinfo[22]}}</td>
+		<td>${{cinfo[27]}}</td>
+		<td>${{cinfo[43]}}</td>
+	</tr>
+	<tr>
+		<td>{{cinfo[42]}} BTC</td>
+		<td>{{cinfo[45]}} BTC</td>
+		<td>{{cinfo[44]}} BTC</td>
+	</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+</div>
+<br>
+<div class="row">  
+<div class="col-lg-12 col-md-12">
+<div class="chart-container">
+    <canvas id="line-chartcanvas" ></canvas>
+</div>
+</div>
+</div>
+<br>
+<div class="row">
+<div class="col-lg-12 col-md-12">
+<div class="card">
+  <div class="card-header bg-info text-white"><h3>Blockchain Info</h3> </div>
+  <div class="card-body">
+<ul class="list-group list-group-flush">
+  <li class="list-group-item"><div class="row"><div class="col-xs-6 col-sm-6 col-md-6" style="width: 50%;text-align: left;"><i class="fa fa-th"></i><strong> Current Blocks:</strong></div><div class="col-xs-6 col-sm-6 col-md-6" style="width: 50%;"><span>{{cinfo[46]}}</span></div></div></li>
+  <li class="list-group-item"><div class="row"><div class="col-xs-6 col-sm-6 col-md-6" style="width: 50%;text-align: left;"><i class="far fa-copy"></i><strong> Blocks in 24h:</strong></div><div class="col-xs-6 col-sm-6 col-md-6" style="width: 50%;"><span>{{cinfo[47]}}</span></div></div></li>
+  <li class="list-group-item"><div class="row"><div class="col-xs-6 col-sm-6 col-md-6" style="width: 50%;text-align: left;"><i class="far fa-clock"></i><strong> AVG Block Time:</strong></div><div class="col-xs-6 col-sm-6 col-md-6" style="width: 50%;"><span>{{cinfo[48]}} seconds</span></div></div></li>
+  <li class="list-group-item"><div class="row"><div class="col-xs-6 col-sm-6 col-md-6" style="width: 50%;text-align: left;"><i class="fas fa-briefcase"></i><strong> Wallet Version:</strong></div><div class="col-xs-6 col-sm-6 col-md-6" style="width: 50%;"><span>{{cinfo[49]}}</span></div></div></li>
+  <li class="list-group-item"><div class="row"><div class="col-xs-6 col-sm-6 col-md-6" style="width: 50%;text-align: left;"><i class="far fa-calendar-alt"></i><strong> Genesis Block:</strong></div><div class="col-xs-6 col-sm-6 col-md-6" style="width: 50%;"><span>{{cinfo[50]}}</span></div></div></li>
+</ul>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>  
+      <div class="row">
+          <div class="col-lg-12" style="text-align:center;">
+			<hr>
+			<p><div style="font-size: 13px;">NodeMarketCap © 2018 | Made by Mrmetech | <a href="/disclaimer/">Disclaimer</a> | <a href="/api/">Api</a> | <a href="/terms/">Terms</a> | <a href="/privacy/">Privacy</a> | Contact us: <a href="mailto:info@nodemarketcap.com">info@nodemarketcap.com</a> | Follow us on <a href="https://twitter.com/nodemarketcap">Twitter</a> | <a href="https://docs.google.com/forms/d/e/1FAIpQLSczdl6ikvffrSLPOpBNDPbia5DY2smB_pNIr3_1QAbvylvFgw/viewform?usp=sf_link" title="Listing &amp; Advertising with NodeMarketCap" target="_blank">Listing &amp; Advertising with NodeMarketCap</a></div></p>
+		</div>
+		<div>
+		<p>
+                            <a href="https://play.google.com/store/apps/details?id=com.nodemarketcap.nodemarketcap" target="_blank">
+                                <img src="/static/imgs/logos/android.png" height="34">
+                            </a>
+                        </p>
+		</div>
+	 </div>
+</div>
+    <script src="/static/js/index.js"></script>
+	<script src="/static/js/p5.min.js"></script>
+	<script>
+ 
+   // bar chart data
+   var ctx = $("#line-chartcanvas");
+   var data = {
+   labels : [{% for item in labels %}
+                  "{{item}}",
+              {% endfor %}],
+   datasets : [
+      {
+            label: 'Masternode Count',
+            borderColor: "rgba(10,230,255,1)",
+            pointBackgroundColor: "rgba(10,230,255,1)",
+            pointBorderColor: "rgba(10,230,255,1)",
+            pointHoverBackgroundColor: "#0ae6ff",
+            pointHoverBorderColor: "#0ae6ff",
+            
+            bezierCurve : false,
+			hidden: true,
+            data : [{% for item in mncount %}
+                      {{item}},
+                    {% endfor %}]
+      },       {
+            label: 'ROI [%]',
+            borderColor: "rgba(237,9,9,1)",
+            pointBackgroundColor: "rgba(237,9,9,1)",
+            pointBorderColor: "rgba(237,9,9,1)",
+            pointHoverBackgroundColor: "#ed0909",
+            pointHoverBorderColor: "#ed0909",
+            
+            bezierCurve : false,
+			hidden: true,
+            data : [{% for item in roi %}
+                      {{item}},
+                    {% endfor %}]
+      },      {
+            label: 'Price [USD]',
+            borderColor: "rgba(8,237,35,1)",
+            pointBackgroundColor: "#fff",
+            pointBorderColor: "rgba(8, 237, 35,1)",
+            pointHoverBackgroundColor: "rgba(8,237,35,1)",
+            pointHoverBorderColor: "#08ed23",
+            
+            bezierCurve : false,
+            data : [{% for item in priceusd %}
+                      {{item}},
+                    {% endfor %}]
+      },      {
+            label: 'Price [BTC]',
+            borderColor: "rgba(159,13,232,1)",
+            pointBackgroundColor: "rgba(159,13,232,1)",
+            pointBorderColor: "rgba(159,13,232,1)",
+            pointHoverBackgroundColor: "#9f0de8",
+            pointHoverBorderColor: "#9f0de8",
+            
+            bezierCurve : false,
+			hidden: true,
+            data : [{% for item in pricebtc %}
+                      {{item}},
+                    {% endfor %}]
+      },      {
+            label: 'Daily[{{legend}}]',
+            borderColor: "rgba(45,12,232,1)",
+            pointBackgroundColor: "rgba(45,12,232,1)",
+            pointBorderColor: "rgba(45,12,232,1)",
+            pointHoverBackgroundColor: "#2d0ce8",
+            pointHoverBorderColor: "#2d0ce8",
+            
+            bezierCurve : false,
+			hidden: true,
+            data : [{% for item in dailycoin %}
+                      {{item}},
+                    {% endfor %}]
+      },      {
+            label: 'Monthly[{{legend}}]',
+            borderColor: "rgba(24, 242, 205,1)",
+            pointBackgroundColor: "rgba(24, 242, 205,1)",
+            pointBorderColor: "rgba(24, 242, 205,1)",
+            pointHoverBackgroundColor: "#18f2cd",
+            pointHoverBorderColor: "#18f2cd",
+            
+            bezierCurve : false,
+			hidden: true,
+            data : [{% for item in monthlycoin %}
+                      {{item}},
+                    {% endfor %}]
+      },      {
+            label: 'Yearly [{{legend}}]',
+            borderColor: "rgba(241,23,227,1)",
+            pointBackgroundColor: "rgba(241,23,227,1)",
+            pointBorderColor: "rgba(241,23,227,1)",
+            pointHoverBackgroundColor: "#f117e3",
+            pointHoverBorderColor: "#f117e3",
+            
+            bezierCurve : false,
+			hidden: true,
+            data : [{% for item in yearlycoin %}
+                      {{item}},
+                    {% endfor %}]
+      }]
+   }
+ 
+			var options = {
+				title : {
+					display : false,
+					position : "top",
+					text : "Line Graph",
+					fontSize : 18,
+					fontColor : "#111"
+				},
+				legend : {
+					display : true,
+					position : "bottom"
+				}
+			};
+   
+	var myLineChart = new Chart(ctx, {
+		type: 'line',
+		data: data,
+		options: options
+	});
+   
+</script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+{% extends "header.html" %}
+
+{% block body %}
+<style>
+.dataTables_filter, .dataTables_info { display: none; }
+</style>
+<div>
+<br>
+	<center>
+		<a href="https://www.vultr.com/?ref=7673170"><img src="https://www.vultr.com/media/banner_1.png" width="728" height="90"></a>
+	</center>
+<br>
+<br>
+<h2>
+Biggest Gainers and Losers
+</h2>
+<br>
+<p>Coins that made that largest or smallest gains in the last 24 hours</p>
+<br>
+<div class="col-sm-12">
+<ul class="nav nav-tabs" id="myTab" style="border-bottom: 0px solid #252527;">
+  <li class="nav-item">
+    <a class="nav-link active" href="#gainers" id="gainers-tab" data-toggle="tab" aria-controls="gainers" aria-expanded="true">Gainers</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " href="#losers" id="losers-tab" data-toggle="tab" aria-controls="losers" aria-expanded="false">Losers</a>
+  </li>
+</ul> 
+  <div id="TabStats" class="tab-content">
+	<div class="tab-pane fade show active" id="gainers" aria-labelledby="gainers-tab">
+
+
+
+
+<table align="center" id="gainers-table" class="table table-striped responsive nowrap dataTable no-footer dtr-column" style="width:100%; margin-top: 0px !important;">
+        <thead>
+            <tr>
+				<th>#</th>
+                <th></th>			
+                <th>Coin</th>
+                <th>ROI</th>
+                <th>Price</th>
+                <th>Change</th>
+				<th>Required</th>
+                <th>Nodes</th>
+                <th>Mn worth</th>
+                <th>Volume</th>
+                <th>Status</th>				
+            </tr>
+        </thead>
+        <tbody>
+
+	
+    {%- for cinfo in coins recursive %}
+            <tr class="coinlist-row clickable-row" data-href="{{cinfo[1]}}">
+				<td>{{cinfo[11]}}</td>
+                <td>{{cinfo[0]}}</td>
+                <td>{{cinfo[10]}}</td>
+                <td  style="color: #2A83FC;" class="roi" data-percentusd="{{cinfo[2]}}" data-sort="{{cinfo[2]}}"></td>
+                <td class="price " data-usd="{{cinfo[3]}}" data-sort="{{cinfo[3]}}"></td>
+                <td class="percent-change " data-percentusd="{{cinfo[4]}}" data-sort="{{cinfo[4]}}"></td>
+                <td class="">{{cinfo[5]}}</td>
+                <td class="">{{cinfo[6]}}</td>
+                <td class="price" data-usd="{{cinfo[7]}}" data-sort="{{cinfo[7]}}"></td>
+                <td class="volume" data-usd="{{cinfo[8]}}" data-sort="{{cinfo[8]}}"></td>
+				<td>{{cinfo[9]}}</td>
+            </tr>
+    {%- endfor %}
+	
+	
+        </tbody>
+    </table>
+</div>
+
+<div class="tab-pane fade show" id="losers" aria-labelledby="losers-tab">
+
+
+
+
+<table align="center" id="losers-table" class="table table-striped responsive nowrap dataTable no-footer dtr-column" style="width:100%; margin-top: 0px !important;">
+        <thead>
+            <tr>
+				<th>#</th>
+                <th></th>			
+                <th>Coin</th>
+                <th>ROI</th>
+                <th>Price</th>
+                <th>Change</th>
+				<th>Required</th>
+                <th>Nodes</th>
+                <th>Mn worth</th>
+                <th>Volume</th>
+                <th>Status</th>				
+            </tr>
+        </thead>
+        <tbody>
+
+	
+    {%- for cinfo in coins2 recursive %}
+            <tr class="coinlist-row clickable-row" data-href="{{cinfo[1]}}">
+				<td>{{cinfo[11]}}</td>
+                <td>{{cinfo[0]}}</td>
+                <td>{{cinfo[10]}}</td>
+                <td  style="color: #2A83FC;" class="roi" data-percentusd="{{cinfo[2]}}" data-sort="{{cinfo[2]}}"></td>
+                <td class="price " data-usd="{{cinfo[3]}}" data-sort="{{cinfo[3]}}"></td>
+                <td class="percent-change " data-percentusd="{{cinfo[4]}}" data-sort="{{cinfo[4]}}"></td>
+                <td class="">{{cinfo[5]}}</td>
+                <td class="">{{cinfo[6]}}</td>
+                <td class="price" data-usd="{{cinfo[7]}}" data-sort="{{cinfo[7]}}"></td>
+                <td class="volume" data-usd="{{cinfo[8]}}" data-sort="{{cinfo[8]}}"></td>
+				<td>{{cinfo[9]}}</td>
+            </tr>
+    {%- endfor %}
+	
+	
+        </tbody>
+    </table>
+</div>
+</div>
+</div>
+
+</div>
+<br>
+
+<p align="center" style="font-size: 13px;"><strong>NodeMarketCap is a masternode coin monitoring and stats service. NodeMarketCap does not research or recommend any coin. Do your own research and invest at your own risk.</strong></p>
+<p align="center" style="font-size: 13px;">ROI changes often and is not the most important factor.  Please consider <strong>Dev Team - Community - PURPOSE/Platform - Liquidity - Wallet</strong> when making masternode purchases.</p>
+
+{% endblock %}

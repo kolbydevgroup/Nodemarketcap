@@ -1,0 +1,344 @@
+.site-price-spots {
+    display: inline-block;
+    width: 24%;
+    position: relative;
+    text-align: left;
+}
+
+.box-info {
+    background-color: #fff;
+    border-radius: 8px;
+    width: 100%;
+    padding: 22px 15px 15px;
+    border: 1px solid rgba(0,0,0,.125);
+    position: relative;
+    line-height: 0.4;	
+}
+
+.data-info-title {
+    display: flex;
+}
+
+.update-time {
+    color: #9c9c9c;
+    font-size: 12px;
+    margin-top: 6px;
+    margin-left: auto;
+}
+
+.data-info-title-name {
+    display: inline-block;
+    text-align: center;
+    font-size: 20px;
+    padding-left: 8px;
+    line-height: 28px;
+}
+
+.slice-line {
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+.bitcoin-value, .currency-value {
+    padding-top: 8px;
+    font-size: 14px;
+}
+
+.overall-title {
+    color: #000;
+    font-size: 18px;
+    padding-left: 24px;
+    padding-right: 24px;
+    font-weight: lighter;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.sourcelink-block {
+    display: inline-block;
+    clear: both;
+    padding-left: 10%;
+    margin-top: -20px;
+    line-height: 200%;
+}
+
+.sourcelink {
+    display: flex;
+    line-height: 200%;
+}
+
+.income-desc {
+    font-size: 16px;
+    color: #000;
+}
+
+.income-amount {
+    font-size: 22px;
+    padding-top: 8px;
+}
+
+.size-sign-amount {
+    font-size: 14px;
+}
+
+.currency-b, .currency-name, .income-amount {
+    font-weight: 700;
+}
+
+.bitcoin-value, .currency-value {
+    padding-top: 8px;
+    font-size: 14px;
+}
+
+.bitcoin-value {
+    color: grey;
+}
+
+.income-amount-daily {
+    color: #33ccff;
+}
+
+.income-amount-weekly {
+    color: #1aa3ff;
+}
+
+.income-amount-monthly {
+    color: #0066ff;
+}
+
+.income-amount-yearly {
+    color: #0000b3;
+}
+
+
+.dropdown2 .dropdown-menu.show {
+    flex-wrap: wrap!important;
+    display: flex!important;
+}
+
+.dropdown2 .dropdown-menu{
+    position:absolute!important;
+    top:100%!important;
+    z-index:1000!important;
+    display:none!important;
+    float:left!important;
+    min-width:300px!important;
+    padding:5px 0!important;
+    margin:2px 0 0!important;
+    font-size:14px!important;
+    list-style:none!important;
+    background-color:#fff!important;
+    background-clip:padding-box!important;
+    border:1px solid #ccc!important;
+    border:1px solid rgba(0,0,0,.15)!important;
+    border-radius:4px!important;
+    -webkit-box-shadow:0 6px 12px rgba(0,0,0,.175)!important;
+    box-shadow:0 6px 12px rgba(0,0,0,.175)!important;
+}
+
+.dropdown2 .dropdown-menu li {
+    display: block;
+    padding: 0;
+    clear: both;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.dropdown2 .dropdown-menu li a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
+
+@media (max-width: 575px) and (min-width: 376px){
+.site-price-spots {
+    width: 48%;
+}
+}
+@media (max-width: 767px) and (min-width: 576px){
+.site-price-spots {
+    width: 48%;
+}
+}
+@media (max-width: 991px) and (min-width: 768px){
+.site-price-spots {
+    width: 48%%;
+}
+}
+
+@media (max-width: 1200px) and (min-width: 992px){
+.site-price-spots {
+    width: 48%;
+}
+}
+
+.night-mode .card {
+	background-color: #1b1c20;
+    border: 1px solid #252527;
+}
+
+.night-mode a {
+	color: #a0a0a0;
+}
+
+.night-mode .nav-tabs .nav-item.show .nav-link, .night-mode .nav-tabs .nav-link.active {
+    color: #a0a0a0;
+    background-color: #252527;
+    border-color: #252527;
+}
+
+.night-mode .box-info {
+	background-color: #1b1c20;
+	border: 1px solid #252527;
+}
+
+.night-mode .form-control {
+	background-color: #1b1c20;
+	border: 1px solid #252527;
+}
+
+.night-mode .page-item.disabled .page-link {
+	background-color: #1b1c20;
+	border: 1px solid #252527;
+}
+
+.night-mode .page-item.active .page-link {
+	background-color: #252527;
+	border: 1px solid #252527;
+}
+
+.night-mode .page-link  {
+	background-color: #1b1c20;
+	border: 1px solid #252527;
+}
+
+.night-mode .dataTables_filter input  {
+	background-color: #1b1c20;
+	border: 1px solid #252527;
+}
+
+.night-mode .table td, .night-mode .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #252527;
+}
+
+.night-mode .list-group-item {
+	background-color: #1b1c20;
+	border: 1px solid #252527;
+}
+
+.night-mode .nav-tabs {
+    border-bottom: 1px solid #252527;
+}
+
+.night-mode .hr-nice {
+    border-top: 1px solid #252527!important;
+	background-color: #252527;
+}
+
+.night-mode .income-desc {
+	color: #fff;
+}
+
+.night-mode {
+    background-color: #17181b;
+    color: #a0a0a0;
+}
+
+.dark-bar {
+    background-color: #17181b!important;
+    color: #a0a0a0;
+}
+
+.dayAndNight input[type=radio] {
+	
+	display: none;
+}
+
+.negative_change {
+    color: #dc3545;
+}
+
+
+.night-mode .negative_change {
+    color: #dc3545;
+}
+
+.night-mode .positive_change {
+    color: #28a745;
+}
+
+.positive_change {
+    color: #28a745;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.coinlist-row:hover{
+    background-color:#F5F9FC!important;
+    cursor:pointer;
+    user-select:none
+}
+
+.night-mode .coinlist-row:hover{
+    background-color:#252527!important;
+    cursor:pointer;
+    user-select:none
+}
+
+.night-mode .nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+	color: #a0a0a0;
+}
+
+.nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+	color: #212529;
+}
+
+.night-mode .page-link  {
+	background-color: #1b1c20;
+	border: 1px solid #252527;
+}
+
+
+.update-time {
+    color: #9c9c9c;
+    font-size: 12px;
+    margin-top: 6px;
+    margin-left: auto;
+}
+
+
+.status-pill {
+    width: 12px;
+    height: 12px;
+    border-radius: 30px;
+    background-color: #eee;
+    display: inline-block;
+    vertical-align: middle;
+}
+.greenmn {
+    color: #71c21a;
+}
+.smaller {
+    width: 8px;
+    height: 8px;
+}
+.redmn {
+    color: #c21a1a;
+}		
+.status-pill + span {
+    margin-left: 10px;
+}	

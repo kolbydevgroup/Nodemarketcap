@@ -1,0 +1,142 @@
+{% extends "header.html" %}
+
+{% block body %}
+<div class="row">
+<div class="col-lg-12">
+<h1 class="text-center">NodeMarketCap Public API Documentation</h1>
+<p class="text-center">Version 2</p>
+<hr>
+
+<section class="sub-section">
+<h2 class="text-center margin-bottom--lv3">Summary of Endpoints</h2>
+<ul>
+<li><a href="#endpoint_ticker">Ticker</a></li>
+<li><a href="#endpoint_ticker_specific_cryptocurrency">Ticker (Specific Currency)</a></li>
+</ul>
+</section>
+<h2 class="text-center margin-bottom--lv3">Public API Endpoints</h2>
+
+<section class="sub-section">
+<a id="endpoint_ticker"></a>
+<h3>Ticker</h3>
+<ul>
+<li>Endpoint: /ticker/</li>
+<li>Method: GET</li>
+<li>Description: This endpoint displays cryptocurrency ticker data in order of rank. The maximum number of results per call is <i>100</i>. Pagination is possible by using the <i>start</i> and <i>limit</i> parameters.</li>
+<li>Optional parameters:
+<ul>
+<li>(int) start - return results starting from the specified number (default is <i>1</i>)</li>
+<li>(string) structure - specify the structure for the main data field. Possible values are <i>dictionary</i> and <i>array</i> (default is <i>dictionary</i>).</li>
+
+</ul>
+</li><li>Example: <a href="https://nodemarketcap.com/api/tickers">https://nodemarketcap.com/api/tickers</a></li>
+<li>Sample Response:
+<pre>
+[
+    {
+        "crave": {
+            "yearlyRewardsBTC": 0.0519,
+            "yearlyRewardsUSD": 331.5795,
+            "costInCoin": 5000,
+            "weeklyRewardsCOIN": 57.7099,
+            "change": 1.74,
+            "coinUSDPrice": 0.1105,
+            "coinsLOCKED": 5240000.0,
+            "mnroi": 60.1832,
+            "volUSDTraded": 2443.72,
+            "coinName": "Crave",
+            "mncount": 1048,
+            "weeklyRewardsBTC": 0.001,
+            "dailyRewardsUSD": 0.9084,
+            "monthlyRewardsCOIN": 247.3282,
+            "mnPriceUSD": 552.385,
+            "weeklyRewardsUSD": 6.3591,
+            "dailyRewardsBTC": 0.0001,
+            "monthlyRewardsBTC": 0.0043,
+            "monthlyRewardsUSD": 27.2531,
+            "dailyRewardsCOIN": 8.2443,
+            "yearlyRewardsCOIN": 3009.1603
+        }
+    },
+    {
+        "xarucoin": {
+            "yearlyRewardsBTC": 0.0053,
+            "yearlyRewardsUSD": 33.7265,
+            "costInCoin": 20000,
+            "weeklyRewardsCOIN": 583.1405,
+            "change": "-3.4",
+            "coinUSDPrice": 0.0011,
+            "coinsLOCKED": 4840000.0,
+            "mnroi": 152.0331,
+            "volUSDTraded": 35.7945,
+            "coinName": "Xarucoin",
+            "mncount": 242,
+            "weeklyRewardsBTC": 0.0001,
+            "dailyRewardsUSD": 0.0924,
+            "monthlyRewardsCOIN": 2499.1736,
+            "mnPriceUSD": 22.1836,
+            "weeklyRewardsUSD": 0.6468,
+            "dailyRewardsBTC": 0.0,
+            "monthlyRewardsBTC": 0.0004,
+            "monthlyRewardsUSD": 2.772,
+            "dailyRewardsCOIN": 83.3058,
+            "yearlyRewardsCOIN": 30406.6116
+        }
+    }
+]	</pre>
+</li>
+</ul>
+</section>
+<section class="sub-section">
+<a id="endpoint_ticker_specific_cryptocurrency"></a>
+<h3>Ticker (Specific Currency)</h3>
+<ul>
+ <li>Endpoint: /ticker/{id}/</li>
+<li>Method: GET</li>
+<li>Description: This endpoint displays ticker data for a specific cryptocurrency. Use the "id" field from the <a href="#endpoint_listings">Listings</a> endpoint in the URL. </li>
+<li>Optional parameters:
+<ul>
+<li>(string) structure - specify the structure for the main data field. Possible values are <i>dictionary</i> and <i>array</i> (default is <i>dictionary</i>).</li>
+</ul>
+</li><li>Example: <a href="https://nodemarketcap.com/api/curium">https://nodemarketcap.com/api/curium</a></li>
+<li>Example: <a href="https://nodemarketcap.com/api/phore">https://nodemarketcap.com/api/phore</a></li>
+<li>Example: <a href="https://nodemarketcap.com/api/Smartcash">https://nodemarketcap.com/api/Smartcash</a></li>
+<li>Sample Response:
+<pre>
+{
+    "curium": {
+        "yearlyRewardsBTC": 0.0211,
+        "weeklyRewardsBTC": 0.0004,
+        "yearlyRewardsUSD": 134.7291,
+        "coinsLOCKED": 1040000.0,
+        "weeklyRewardsCOIN": 290.7692,
+        "monthlyRewardsBTC": 0.0017,
+        "coinUSDPrice": 0.0089,
+        "dailyRewardsBTC": 0.0001,
+        "mnroi": 151.6154,
+        "volUSDTraded": "$110.1427",
+        "coinName": "Curium",
+        "mncount": 104,
+        "dailyRewardsUSD": 0.3691,
+        "monthlyRewardsCOIN": 1246.1538,
+        "mnPriceUSD": 88.8624,
+        "yearlyRewardsCOIN": 15161.5385,
+        "change": "-10.82",
+        "costInCoin": 10000,
+        "monthlyRewardsUSD": 11.0736,
+        "dailyRewardsCOIN": 41.5385,
+        "weeklyRewardsUSD": 2.5838
+    }
+}              </pre>
+</li>
+</ul>
+</section>
+
+
+</div>	 
+</div>
+
+
+</body>
+</html>
+{% endblock %}
